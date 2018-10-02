@@ -1,4 +1,7 @@
 # KonamiCode
+
+[![](https://jitpack.io/v/inlacou/KonamiCode.svg)](https://jitpack.io/#inlacou/KonamiCode)
+
 ---
 Easy install of our favorite easter-egg!
 
@@ -30,7 +33,7 @@ Add the dependency in the form:
 
 ```groovy
 dependencies {
-    compile 'com.github.thiagokimo:KonamiCode:1.1.6'
+    compile 'com.github.inlacou:KonamiCode:1.2.0'
 }
 ```
 
@@ -50,7 +53,7 @@ And them this into your dependencies
 <dependency>
     <groupId>com.github.thiagokimo</groupId>
     <artifactId>KonamiCode</artifactId>
-	<version>1.1.6</version>
+	<version>1.2.0</version>
 </dependency>
 ```
 ## How to use
@@ -72,16 +75,27 @@ trigger the final callback.
 
 By default a callback with a Toast message will appear. You can customize the final callback by yourself:
 
-``` java
-new KonamiCode.Installer(context)
-        .on(activity-or-fragment-or-view)
-        .callback(new KonamiCode.Callback() {
-            @Override
-            public void onFinish() {
-                //whatever
-            }
-        })
-        .install();
+``` kt
+KonamiCodeInstaller(this)
+	.on(this)
+	.install(KonamiKodeView(this))
+```
+
+More complex (change swipes and disable buttons):
+
+``` kt
+val kkv = KonamiKodeView(this)
+
+kkv.model = KonamiKodeViewMdl(
+	directionsOrder = listOf(Direction.UP, Direction.DOWN, Direction.UP, Direction.DOWN),
+	buttonsOrder = listOf(),
+	onFinish = {
+		Toast.makeText(this, "Correct code", Toast.LENGTH_SHORT).show()
+	})
+
+KonamiCodeInstaller(this)
+	.on(this)
+	.install(kkv)
 ```
 
 ### Attention
