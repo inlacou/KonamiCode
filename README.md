@@ -3,18 +3,7 @@
 [![](https://jitpack.io/v/inlacou/KonamiCode.svg)](https://jitpack.io/#inlacou/KonamiCode)
 
 ---
-Easy install of our favorite easter-egg!
-
-![konami-code-tutorial](http://choconatos.com/home/wp-content/uploads/2013/11/Konami-Code.jpg)
-
-![JitPack Badge](https://img.shields.io/github/release/thiagokimo/KonamiCode.svg?label=JitPack)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-KonamiCode-green.svg?style=flat)](https://android-arsenal.com/details/1/2202)
-
-## Preview
-[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=io.kimo.konami)
-
-[![a screenshot](https://raw.githubusercontent.com/thiagokimo/KonamiCode/master/assets/konami-code-screenshot.png)](https://youtu.be/vIRdoI-V-Pk)
-
+Forked from [here](https://github.com/thiagokimo/KonamiCode?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=2202)
 
 ## Inculde in your project
 ### Gradle
@@ -81,7 +70,7 @@ KonamiCodeInstaller(this)
 	.install(KonamiKodeView(this))
 ```
 
-More complex (change swipes and disable buttons):
+More complex (in this example, change swipes and disable buttons):
 
 ``` kt
 val kkv = KonamiKodeView(this)
@@ -98,19 +87,10 @@ KonamiCodeInstaller(this)
 	.install(kkv)
 ```
 
+You can change the model (and the combination whithin it) when you want!
+
 ### Attention
 Make sure you add this **AFTER** your view is set, otherwise it won't listen to your swipes. KonamiCode adds a swipe listener into the root view of your Activity.
-
-## Contribuiting
-
-1. Fork it
-2. Create your feature/bug-fix branch(`git checkout -b my-new-feature-or-fix`)
-3. Commit your changes (`git commit -am 'Add some feature/fix'`)
-4. Do your pull-request
-
-## Developed by
-
-* Thiago Rocha - http://kimo.io - <kimo@kimo.io>
 
 ## License
 
