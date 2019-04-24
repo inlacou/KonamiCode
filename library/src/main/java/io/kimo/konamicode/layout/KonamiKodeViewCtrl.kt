@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import android.view.ViewConfiguration
 import io.kimo.konamicode.enums.Button
 import io.kimo.konamicode.enums.Direction
+import io.kimo.konamicode.enums.ErrorType
 
 
 class KonamiKodeViewCtrl(val view: KonamiKodeView, var model: KonamiKodeViewMdl) {
@@ -21,6 +22,7 @@ class KonamiKodeViewCtrl(val view: KonamiKodeView, var model: KonamiKodeViewMdl)
 
 			if (!validPressedSequence()) {
 				Log.d(TAG, "Invalid button sequence!")
+				model.onError?.invoke(ErrorType.INVALID_BUTTON_SEQUENCE, model.swipes, model.pressedButtons)
 				resetPressedSequence()
 				view.hideDialog()
 			} else {
@@ -38,6 +40,7 @@ class KonamiKodeViewCtrl(val view: KonamiKodeView, var model: KonamiKodeViewMdl)
 
 			if (!validSwipeSequence()) {
 				Log.d(TAG, "Invalid swipe sequence")
+				model.onError?.invoke(ErrorType.INVALID_SWIPE_SEQUENCE, model.swipes, model.pressedButtons)
 				resetSwipeSequence()
 			} else {
 				Log.d(TAG, "maybe valid swipe sequence")
